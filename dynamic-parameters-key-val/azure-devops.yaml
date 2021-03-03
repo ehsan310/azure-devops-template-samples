@@ -1,0 +1,15 @@
+resources:
+  repositories:
+    - repository: repo-name
+      type: githubenterprise
+      name: organization/repo-name
+      endpoint: Github-SA
+
+pool: AzurePool
+
+extends:
+  template: azure-template.yaml
+  parameters:
+    services: 
+      - variable: "val"
+      - variable2: "val2"

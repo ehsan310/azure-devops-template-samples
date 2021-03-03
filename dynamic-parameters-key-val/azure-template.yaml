@@ -1,0 +1,12 @@
+parameters:
+  - name: services
+    type: object
+
+jobs:
+- job: Execute
+  steps:
+    - checkout: self
+    - ${{ each service in parameters.services }}:
+      - ${{ each pair in service }}:
+        - bash: echo ${{ pair.key }}
+        - bash: echo ${{ pair.value }} 
